@@ -42,7 +42,7 @@ async def on_message(message):
         i = (message.author.guild_permissions.administrator)
         if i is True:
             embed = discord.Embed(title="역할봇",description="역할!", color=0x00aaaa)
-            embed.add_field(name="멘션 허용", value="멘션을 허용하실분들은 아래의 체크 이모지를 눌러주세요", inline=False)
+            embed.add_field(name=opal, value= opal + "역할을받으실분들은 아래의 체크 이모지를 눌러주세요", inline=False)
             msg = await message.channel.send(embed=embed)
             await msg.add_reaction("✅")        
         if i is False:
