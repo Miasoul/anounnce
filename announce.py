@@ -2,7 +2,7 @@ import discord
 import datetime
 import asyncio
 import time
-
+import os
 client = discord.Client()
 
 @client.event
