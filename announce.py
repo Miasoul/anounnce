@@ -56,8 +56,8 @@ async def on_message(message):
         await message.channel.purge(limit=1)
         i = (message.author.guild_permissions.administrator)
         if i is True:
-            notice = message.content.split(" ")[2]
-            chanid = message.content.split(" ")[3]
+            notice = message.content.split(" ")[1]
+            chanid = message.content.split(" ")[2]
             channel = client.get_channel(chanid)
             embed = discord.Embed(title="**공지사항 제목 *", description="공지사항 내용은 항상 숙지 해주시기 바랍니다\n――――――――――――――――――――――――――――\n\n{}\n\n――――――――――――――――――――――――――――".format(notice),color=0x00ff00)
             embed.set_footer(text="Bot Made by. Miasoul#0811 | 담당 관리자 : {}".format(message.author))
