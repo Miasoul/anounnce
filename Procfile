@@ -1,1 +1,1 @@
-worker: python dmsend.py
+worker: python announce.py
