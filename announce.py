@@ -51,7 +51,7 @@ async def on_message(message):
 
 
 
-    if message.content.startswith ("!공지"):
+    if message.content.startswith ("!!공지"):
         
         await message.channel.purge(limit=1)
         i = (message.author.guild_permissions.administrator)
@@ -68,7 +68,7 @@ async def on_message(message):
         if i is False:
             await message.channel.send("{}, 당신은 관리자가 아닙니다".format(message.author.mention))
 
-    if message.content.startswith ("!청소"):
+    if message.content.startswith ("!!청소"):
         leg = message.content[4:]
         i = (message.author.guild_permissions.administrator)
         if i is True:
