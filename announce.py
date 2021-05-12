@@ -3,6 +3,10 @@ import datetime
 import asyncio
 import time
 import os
+import requests
+from bs4 import BeautifulSoup
+
+
 client = discord.Client()
 
 @client.event
@@ -47,7 +51,21 @@ async def on_message(message):
             await msg.add_reaction("✅")        
         if i is False:
             await message.channel.send("{}님은 관리자가 아닙니다", format(message.author.mention))   
-               
+res = requests.get('https://comic.naver.com/webtoon/weekday.nhn')
+
+
+
+
+
+
+if message.content.startswith ("!!웹툰순위"):
+    soup = BeautifulSoup(res.text, "lxml")
+    rank1 = soup.find("li", attrs={"class":"rank01"}).get_text()
+    rank2 = soup.find("li", attrs={"class":"rank02"}).get_text()
+    rank3 = soup.find("li", attrs={"class":"rank03"}).get_text()
+    rank4 = soup.find("li", attrs={"class":"rank04"}).get_text()
+    rank5 = soup.find("li", attrs={"class":"rank05"}).get_text()
+    await message.channel.send("1등{}2등{}3등{}4등{}5등{}".format(rank1, rank2, rank3, rank4, rank5))               
 
 
 
